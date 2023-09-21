@@ -6,12 +6,36 @@ package edu.eci.arsw.math;
 ///  https://en.wikipedia.org/wiki/Bailey%E2%80%93Borwein%E2%80%93Plouffe_formula
 ///  *** Translated from C# code: https://github.com/mmoroney/DigitsOfPi ***
 ///  </summary>
-public class PiDigits {
+public class PiDigits extends Thread{
 
     private static int DigitsPerSum = 8;
     private static double Epsilon = 1e-17;
+    private int start;
+    private int count;
+    private final static char[] hexArray = "0123456789ABCDEF".toCharArray();
 
-    
+    public PiDigits(int start, int count){
+        super();
+        this.start = start;
+        this.count = count;
+    }
+
+    public void run (){
+        byte[] bytes = getDigits(start, count);
+        char[] hexChars = new char[bytes.length * 2];
+        for (int j = 0; j < bytes.length; j++) {
+            int v = bytes[j] & 0xFF;
+            hexChars[j * 2] = hexArray[v >>> 4];
+            hexChars[j * 2 + 1] = hexArray[v & 0x0F];
+        }
+        StringBuilder sb=new StringBuilder();
+        for (int i=0;i<hexChars.length;i=i+2){
+            //sb.append(hexChars[i]);
+            sb.append(hexChars[i+1]);            
+        }
+        System.out.println(sb.toString());
+    }
+
     /**
      * Returns a range of hexadecimal digits of pi.
      * @param start The starting location of the range.
@@ -41,6 +65,7 @@ public class PiDigits {
             }
 
             sum = 16 * (sum - Math.floor(sum));
+            System.out.println(sum);
             digits[i] = (byte) sum;
         }
 

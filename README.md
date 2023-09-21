@@ -1,8 +1,8 @@
 
 ### Escuela Colombiana de Ingeniería
 ### Arquitecturas de Software - ARSW
+### Desarrollado por: Daniel Santiago Gómez Zabala
 ## Ejercicio Fórmula BBP - Parcial Practico
-
 
 **Ejercicio Fórmula BBP**
 
