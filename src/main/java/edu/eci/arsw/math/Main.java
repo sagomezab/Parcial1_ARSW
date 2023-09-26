@@ -5,7 +5,6 @@
  */
 package edu.eci.arsw.math;
 
-import java.util.Arrays;
 
 /**
  *
@@ -13,18 +12,11 @@ import java.util.Arrays;
  */
 public class Main {
 
-    public static void main(String a[]) {
+    public static void main(String a[]){
         //System.out.println(bytesToHex(PiDigits.getDigits(0, 10)));
         //System.out.println(bytesToHex(PiDigits.getDigits(1, 100)));
         //System.out.println(bytesToHex(PiDigits.getDigits(1, 1000000)));
-
-        PiDigits t1 = new PiDigits(0, 10);
-        PiDigits t2 = new PiDigits(1, 100);
-        PiDigits t3 = new PiDigits(1, 1000000);
-
-        t1.start();
-        t2.start();
-        t3.start();
+        System.out.println(bytesToHex(PiDigits.getDigits(1, 100, 2))); //1. Se realiza el llamado a la clase PiDigits y se llenan los parametros para la solución del ejericicio 
 
     }
 
